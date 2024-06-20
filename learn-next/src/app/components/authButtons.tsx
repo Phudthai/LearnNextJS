@@ -7,7 +7,7 @@ export function GoogleSignInButton() {
         signIn('google')
     }
     return (
-        <button className="bg-blue-500 text-white p-1 rounded-md m-1 text-lg mx-2" onClick={handleClick}>
+        <button className="bg-yellow-500 text-white p-1 rounded-md m-1 text-lg mx-2" onClick={handleClick}>
             Sign in with google
         </button>
     )
@@ -21,6 +21,18 @@ export function GithubSignInButton() {
     return (
         <button className="bg-pink-500 text-white p-1 rounded-md m-1 text-lg" onClick={handleClick}>
             Sign in with github
+         </button>
+    )
+}
+
+export function FacebookSignInButton() {
+    const handleClick = () => {
+        signIn('facebook')
+    }
+
+    return (
+        <button className="bg-blue-500 text-white p-1 rounded-md m-1 text-lg" onClick={handleClick}>
+            Sign in with facebook
          </button>
     )
 }

@@ -1,12 +1,14 @@
-import { GoogleSignInButton } from "../components/authButtons";
-import { GithubSignInButton } from "../components/authButtons";
-export default function Home() {
-  return (
-    <div className="flex flex-col items-center justify-center m-4">
-      <h1 className="text-4xl my-3">Next Auth</h1>
+import { authConfig } from "@/src/app/lib/auth";
+import { getServerSession } from "next-auth";
+import UserCard from "@/src/app/components/UserCard";
 
-      <GoogleSignInButton />
-      <GithubSignInButton />
-    </div>
-  )
+export default async function Home() {
+  const session = await getServerSession(authConfig);
+  return <div>
+    {session ? (
+        <UserCard user={session?.user} pagetype={"Home"} />
+      ) : (
+        <h1 className="text-5xl">You Shall Not Pass!</h1>
+      )}
+      </div>;
 }
